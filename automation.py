@@ -13,9 +13,10 @@ linkOperation.send_keys(thisLink)
 Submit = web.find_element_by_xpath('//*[@id="sf_submit"]')
 Submit.click()
 
-get_confirmation_div_text = web.find_element_by_css_selector('.freebirdFormviewerViewResponseConfirmationMessage')
-print(get_confirmation_div_text.text)
-if ((get_confirmation_div_text.text) == "Thank you for attending"):
-    print ("Test Was Successful")
-else:
-    print("Test Was Not Successful")
+
+try:
+    toDownload  = web.find_element_by_xpath('//*[@id="sf_result"]/div/div[1]/div[2]/div[2]/div[1]/a')
+    toDownload.click()
+    print('Download Completed!')
+except:
+    print('Error!')
